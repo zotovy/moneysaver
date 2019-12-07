@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import './screens/noGoalHomePage.dart';
+import './screens/registration.dart';
 
 void main() => runApp(MyApp());
 
@@ -40,7 +41,9 @@ class _MyAppState extends State<MyApp> {
                 fontWeight: FontWeight.w500,
                 color: HexColor('404040')),
           )),
-      home: Splash(),
+      home: Registration(
+        currentPage: 1,
+      ),
     );
   }
 }
