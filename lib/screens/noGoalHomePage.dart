@@ -29,8 +29,10 @@ class NoGoalHomePage extends StatelessWidget {
                           children: <Widget>[
                             CircleAvatar(
                                 radius: 35.0,
-                                backgroundImage: AssetImage(
-                                    "assets/user/" + user.avatarUrl)),
+                                backgroundImage: user.hasAvatar
+                                    ? AssetImage(
+                                        "assets/user/" + user.avatarUrl)
+                                    : AssetImage('assets/user/default.png')),
                             SizedBox(width: 10.0),
                             Text(
                               user.name,

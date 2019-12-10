@@ -1,11 +1,14 @@
 class User {
   String name;
+  double salary;
+  int salaryDate;
   String gender;
   String location;
   String email;
   String phone;
   String profession;
 
+  bool hasAvatar = false;
   String avatarUrl;
 
   bool isRemind;
@@ -17,6 +20,8 @@ class User {
 
   User({
     this.name,
+    this.salary,
+    this.salaryDate,
     this.gender,
     this.location,
     this.email,
@@ -28,11 +33,16 @@ class User {
     this.remindType,
     this.remindSound,
     this.language,
+    this.hasAvatar,
   });
 }
 
+// User user = User();
+
 User user = User(
-  name: 'Mike Johnson',
+  name: 'REGISTRATIONEXAMPLE',
+  salary: 1000.0,
+  salaryDate: 1,
   gender: 'Male',
   location: 'Russia',
   email: 'the1ime@yandex.ru',
@@ -45,3 +55,5 @@ User user = User(
   remindSound: 'Basic',
   language: 'English',
 );
+
+// mike.hasAvatar = true;

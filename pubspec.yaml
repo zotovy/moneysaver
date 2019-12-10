@@ -14,7 +14,7 @@ description: A new Flutter project.
 version: 1.0.0+1
 
 environment:
-  sdk: ">=2.1.0 <3.0.0"
+  sdk: ">=2.0.0-dev.68.0 <3.0.0"
 
 dependencies:
   flutter:
@@ -25,6 +25,7 @@ dependencies:
   cupertino_icons: ^0.1.2
   flare_flutter: ^1.7.3
   flare_splash_screen: ^2.0.1+2
+  shared_preferences: any
 
 dev_dependencies:
   flutter_test:
