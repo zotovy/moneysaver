@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+import 'package:moneysaver/models/goal.dart';
 
 import './noGoalHomePage.dart';
 import '../widgets/curvePainter.dart';
@@ -192,19 +193,20 @@ class _ChoiceChipWidgetState extends State<ChoiceChipWidget> {
               width: double.infinity,
               padding: EdgeInsets.all(10.0),
               child: RaisedButton(
-                color: Theme.of(context).primaryColor,
-                padding: EdgeInsets.symmetric(vertical: 15, horizontal: 45),
-                child: Text('Next',
-                    style: TextStyle(fontSize: 20, color: Colors.white)),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(18.0),
-                ),
-                onPressed: () => Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) =>
-                            SecondRegistration(selectedChoice))),
-              ),
+                  color: Theme.of(context).primaryColor,
+                  padding: EdgeInsets.symmetric(vertical: 15, horizontal: 45),
+                  child: Text('Next',
+                      style: TextStyle(fontSize: 20, color: Colors.white)),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10.0),
+                  ),
+                  onPressed: () {
+                    newGoalModel.type = selectedChoice.toString();
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => SecondRegistration()));
+                  }),
             ),
           ],
         )

@@ -3,7 +3,7 @@ class Goal {
   String type;
   int goalAmount;
   String saveType;
-  int saveAmount;
+  double saveAmount;
   int savePercentage;
   DateTime date;
 
@@ -16,3 +16,5 @@ class Goal {
       this.savePercentage,
       this.date});
 }
+
+Goal newGoalModel = Goal();
