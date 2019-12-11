@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:moneysaver/models/user.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import './screens/noGoalHomePage.dart';
+import './screens/createNewGoal.dart';
 import './screens/registration.dart';
 
 void main() async {
@@ -106,24 +107,26 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     var violet = HexColor('7966FE');
     return MaterialApp(
-        theme: ThemeData(
-            brightness: Brightness.light,
-            primaryColor: violet,
-            accentColor: violet,
-            fontFamily: 'Avenir Next',
-            textTheme: TextTheme(
-              title: TextStyle(
-                  fontFamily: 'Avenir Next',
-                  fontSize: 28.0,
-                  fontWeight: FontWeight.w600,
-                  color: HexColor('404040')),
-              headline: TextStyle(
-                  fontFamily: 'Avenir Next',
-                  fontSize: 22.0,
-                  fontWeight: FontWeight.w500,
-                  color: HexColor('404040')),
-            )),
-        home: isUserRegister ? NoGoalHomePage() : Registration(currentPage: 1));
+      theme: ThemeData(
+          brightness: Brightness.light,
+          primaryColor: violet,
+          accentColor: violet,
+          fontFamily: 'Avenir Next',
+          textTheme: TextTheme(
+            title: TextStyle(
+                fontFamily: 'Avenir Next',
+                fontSize: 28.0,
+                fontWeight: FontWeight.w600,
+                color: HexColor('404040')),
+            headline: TextStyle(
+                fontFamily: 'Avenir Next',
+                fontSize: 22.0,
+                fontWeight: FontWeight.w500,
+                color: HexColor('404040')),
+          )),
+      home: CreateNewGoal(),
+      // isUserRegister ? NoGoalHomePage() : Registration(currentPage: 1),
+    );
   }
 }
 
