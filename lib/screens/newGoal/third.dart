@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:moneysaver/models/goal.dart';
 import 'package:moneysaver/models/user.dart';
+import 'package:moneysaver/screens/doneRegistrationSplash.dart';
 import 'package:moneysaver/screens/newGoal/second.dart';
 import 'package:moneysaver/widgets/curvePainter.dart';
 
@@ -255,10 +256,8 @@ class _ChoiceChipWidgetState extends State<ChoiceChipWidget> {
             onPressed: () {
               if (inputController.text.replaceAll(' ', '') != '') {
                 if (_formKey.currentState.validate()) {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => ThirdRegistration()));
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => Splash()));
                 }
               } else {
                 if (saveAmount == 'Fair') {
@@ -271,12 +270,10 @@ class _ChoiceChipWidgetState extends State<ChoiceChipWidget> {
                   newGoalModel.saveAmount = user.salary * 0.15;
                   newGoalModel.savePercentage = 15;
                 }
-                print(newGoalModel.saveAmount);
-                print(newGoalModel.savePercentage);
+                addGoal(newGoalModel);
+                print(getAllGoals());
                 Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => ThirdRegistration()));
+                    context, MaterialPageRoute(builder: (context) => Splash()));
               }
             }),
       ),

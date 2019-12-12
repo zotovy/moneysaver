@@ -1,14 +1,17 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
-
 import 'package:moneysaver/models/user.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import './screens/noGoalHomePage.dart';
-import './screens/createNewGoal.dart';
-import './screens/registration.dart';
+
+import 'package:moneysaver/screens/noGoalHomePage.dart';
+import 'package:moneysaver/screens/createNewGoal.dart';
+import 'package:moneysaver/screens/registration.dart';
+import 'package:moneysaver/models/goal.dart';
+import 'package:moneysaver/database.dart';
+import 'package:sqflite/sqflite.dart';
 
 void main() async {
+  db = DatabaseHelper.instance;
   loadUser();
   Timer(Duration(seconds: 1), () {
     user.name == '' ? isUserRegister = false : isUserRegister = true;
@@ -17,6 +20,7 @@ void main() async {
 }
 
 bool isUserRegister = true;
+DatabaseHelper db;
 
 Future initUser(Map<String, dynamic> content) async {
   SharedPreferences prefs = await SharedPreferences.getInstance();
@@ -128,6 +132,36 @@ class _MyAppState extends State<MyApp> {
       // isUserRegister ? NoGoalHomePage() : Registration(currentPage: 1),
     );
   }
+}
+
+Future<List<Goal>> getAllGoals() async {
+  List<Map<String, dynamic>> rows =
+      await DatabaseHelper.instance.queryAllRows();
+  List<Goal> goalList = [];
+  rows.forEach((row) {
+    goalList.add(Goal(
+      id: row['id'],
+      type: row['type'],
+      goalAmount: row['goalAmount'],
+      saveType: row['saveType'],
+      saveAmount: row['saveAmount'],
+      savePercentage: row['savePercentage'],
+    ));
+  });
+  print(goalList[1].saveAmount);
+  return goalList;
+}
+
+Future addGoal(Goal goal) async {
+  DatabaseHelper db = DatabaseHelper.instance;
+  await db.insert({
+    'id': goal.id,
+    'type': goal.type,
+    'goalAmount': goal.goalAmount,
+    'saveType': goal.saveType,
+    'saveAmount': goal.saveAmount,
+    'savePercentage': goal.savePercentage,
+  });
 }
 
 class HexColor extends Color {

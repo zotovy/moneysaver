@@ -26,7 +26,9 @@ dependencies:
   flare_flutter: ^1.7.3
   flare_splash_screen: ^2.0.1+2
   shared_preferences: any
-  material_design_icons_flutter: 3.4.4595
+  material_design_icons_flutter: ^3.4.4595
+  sqflite: any
+  path_provider: any
 
 dev_dependencies:
   flutter_test:
